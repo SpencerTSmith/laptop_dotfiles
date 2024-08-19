@@ -1,0 +1,172 @@
+// -*- mode: jsonc -*-
+{
+	"layer": "top", // Waybar at top layer
+	"position": "top",
+	"spacing": 0,
+	"margin-top": 5,
+	"margin-right": 5,
+	"margin-left": 5,
+	"margin-bottom": 0,
+	"reload_style_on_change": true,
+	"modules-left": [
+		"hyprland/workspaces",
+		"cpu",
+		"memory",
+		"temperature"
+	],
+	"modules-center": [
+		"custom/updates",
+		"hyprland/window",
+		"custom/power"
+	],
+	"modules-right": [
+		"wireplumber",
+		"clock",
+		"custom/notification",
+		"tray"
+	],
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"format-icons": {
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": "",
+			"default": ""
+		},
+		"persistent-workspaces": {
+			"HDMI-A-2": [
+				1,
+				2
+			],
+			"DP-2": [
+				3,
+				4
+			]
+		}
+	},
+	"hyprland/window": {
+		"format": "{}",
+		"max-length": 50,
+		"rewrite": {
+			"Mozilla Firefox": "",
+			"(.*) — Mozilla Firefox": "",
+			"nvim(.*)": "",
+			"Steam": "",
+			"(.*)Spotify(.*)": "",
+			"(.*) thunar": ""
+		},
+		"separate-outputs": true
+	},
+	"mpris": {
+		"format": " {player_icon} {dynamic} ",
+		"format-paused": " {status_icon} {dynamic} ",
+		"format-stopped": " {status_icon} ",
+		"player-icons": {
+			"default": ""
+		},
+		"status-icons": {
+			"paused": "",
+			"stopped": ""
+		},
+		"dynamic-len": 40,
+		"dynamic-separator": "|"
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
+	"tray": {
+		"icon-size": 21,
+		"spacing": 10
+	},
+	"clock": {
+		"format": " {:%I:%M %p}  ",
+		"format-alt": " {:%A, %B %d, %Y (%R)} ",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"calendar": {
+			"mode": "year",
+			"mode-mon-col": 3,
+			"weeks-pos": "right",
+			"on-scroll": 1,
+			"format": {
+				"months": "<b>{}</b>",
+				"days": "<b>{}</b>",
+				"weeks": "<b>W{}</b>",
+				"weekdays": "<b>{}</b>",
+				"today": "<b><u>{}</u></b>"
+			}
+		},
+		"actions": {
+			"on-click-right": "mode",
+			"on-click-forward": "tz_up",
+			"on-click-backward": "tz_down",
+			"on-scroll-up": "shift_up",
+			"on-scroll-down": "shift_down"
+		}
+	},
+	"cpu": {
+		"format": " {usage}%  ",
+		"tooltip": true,
+		"on-click": "kitty -e btop"
+	},
+	"memory": {
+		"format": " {}%  ",
+		"on-click": "$kitty -e btop"
+	},
+	"temperature": {
+		"hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
+		"critical-threshold": 90,
+		"format": " {temperatureC}°C {icon} ",
+		"format-icons": [
+			"",
+			"",
+			""
+		],
+		"on-click": "kitty -e btop"
+	},
+	"wireplumber": {
+		"format": " {volume}% {icon} ",
+		"tooltip": true,
+		"max-volume": 140,
+		"on-click": "pavucontrol",
+		"format-icons": [
+			"",
+			"",
+			""
+		]
+	},
+	"custom/notification": {
+		"tooltip": false,
+		"format": " {icon} ",
+		"format-icons": {
+			"notification": "󱅫",
+			"none": "󰂚",
+			"dnd-notification": "󱏧",
+			"dnd-none": "",
+			"inhibited-notification": "<span foreground='red'><sup></sup></span>",
+			"inhibited-none": "",
+			"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+			"dnd-inhibited-none": ""
+		},
+		"return-type": "json",
+		"exec-if": "which swaync-client",
+		"exec": "swaync-client -swb",
+		"on-click": "swaync-client -t -sw",
+		"on-click-right": "swaync-client -d -sw",
+		"escape": true
+	},
+	"custom/updates": {
+		"format": " {icon} ",
+		"format-icons": ""
+	},
+	"custom/power": {
+		"format": " {icon} ",
+		"format-icons": "",
+		"tooltip": false,
+		"on-click": "wlogout -b 2"
+	}
+}

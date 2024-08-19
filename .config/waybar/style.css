@@ -1,0 +1,110 @@
+@import url("../gruvbox-colors.css");
+* {
+	border-radius: 10px;
+	color: @fg1;
+}
+
+window#waybar {
+	background-color: transparent;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+	color: transparent;
+	padding: 0;
+}
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+	margin-left: 0px;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+	margin-right: 0px;
+}
+
+.modules-right,
+.modules-center,
+.modules-left {
+	background: @bg;
+	border-width: 3px;
+	border-style: solid;
+	border-color: @fg1;
+}
+
+#window {
+	padding-right:0.6em;
+	padding-left:0.6em;
+}
+
+#custom-power,
+#custom-updates,
+#tray,
+#workspaces {
+	background-color: @bg2;
+}
+
+#workspaces button.active label {
+	color: @aqua;
+}
+
+#clock {
+	color: @orange;
+}
+
+#cpu {
+	color: @green;
+}
+
+#memory {
+	color: @purple;
+}
+
+#wireplumber {
+	color: @yellow;
+}
+
+#wireplumber.muted {
+	color: @red;
+}
+
+#temperature {
+	color: @blue;
+}
+
+#temperature.critical {
+	color: @red;
+}
+
+#tray {
+	padding-right: 0.4em;
+	padding-left: 0.6em;
+}
+
+/*#tray > .passive {*/
+/*	-gtk-icon-effect: dim;*/
+/*}*/
+/**/
+/*#tray > .needs-attention {*/
+/*	-gtk-icon-effect: highlight;*/
+/*}*/
+
+#custom-notification {
+	color: @aqua;
+}
+
+#custom-power {
+	color: @green;
+}
+
+#custom-updates {
+	color: @blue;
+}
+
+#scratchpad {
+	background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}

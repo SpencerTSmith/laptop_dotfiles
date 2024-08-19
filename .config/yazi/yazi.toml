@@ -1,0 +1,4 @@
+[opener]
+play = [
+	{ run = 'celluloid "$@"', orphan = true, for = "unix" },
+]
