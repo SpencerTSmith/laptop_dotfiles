@@ -8,7 +8,7 @@ ZLE_RPROMPT_INDENT=0
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/spence/.zshrc'
+zstyle :compinstall filename '/home/wayfarer/.zshrc'
 
 export EDITOR=nvim
 export VISUAL=nvim
@@ -22,4 +22,4 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 eval "$(starship init zsh)"
-alias config='/usr/bin/git --git-dir=/home/spence/dotfiles --work-tree=/home/spence'
+alias config='/usr/bin/git --git-dir=/home/wayfarer/.dotfiles --work-tree=/home/wayfarer'

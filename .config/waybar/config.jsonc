@@ -12,7 +12,8 @@
 		"hyprland/workspaces",
 		"cpu",
 		"memory",
-		"temperature"
+		"temperature",
+		"battery"
 	],
 	"modules-center": [
 		"custom/updates",
@@ -35,11 +36,9 @@
 			"default": ""
 		},
 		"persistent-workspaces": {
-			"HDMI-A-2": [
+			"eDP-1": [
 				1,
-				2
-			],
-			"DP-2": [
+				2,
 				3,
 				4
 			]
@@ -168,5 +167,15 @@
 		"format-icons": "",
 		"tooltip": false,
 		"on-click": "wlogout -b 2"
+	},
+	"battery": {
+		"interval": 60,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": " {capacity}% {icon} ",
+		"format-icons": ["", "", "", "", ""],
+		"max-length": 25
 	}
 }
